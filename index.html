@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motoclick Onboarding Hub v1.3</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --primary: #D5862F;
+            --bg-dark: #0f1115;
+            --bg-card: #1a1d23;
+            --bg-sidebar: #14171c;
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --border: rgba(255, 255, 255, 0.05);
+            --transition: all 0.2s ease;
+            --radius: 12px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+        body { background-color: var(--bg-dark); color: var(--text-main); overflow: hidden; }
+        .app-container { display: flex; height: 100vh; width: 100vw; }
+
+        /* Sidebar */
+        .sidebar { width: 340px; background-color: var(--bg-sidebar); border-right: 1px solid var(--border); display: flex; flex-direction: column; }
+        .sidebar-header { padding: 1.5rem; text-align: center; border-bottom: 1px solid var(--border); }
+        .logo { width: 70px; margin-bottom: 0.5rem; }
+        .sidebar-header h1 { font-size: 1.1rem; color: var(--primary); letter-spacing: 1px; }
+        
+        .sidebar-nav { flex: 1; overflow-y: auto; padding: 1rem 0.5rem; }
+        
+        .nav-group { margin-bottom: 1.5rem; }
+        .group-title { 
+            display: flex; align-items: center; gap: 0.8rem; padding: 0.8rem 1rem; 
+            color: #fff; font-weight: 700; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+
+        .level-1 { padding-left: 1rem !important; color: var(--primary) !important; font-weight: 600 !important; margin-top: 0.5rem; }
+        .level-2 { padding-left: 2.2rem !important; font-size: 0.85rem !important; }
+
+        .nav-link { 
+            display: block; padding: 0.5rem 1rem; color: var(--text-muted); 
+            text-decoration: none; font-size: 0.95rem; border-radius: 6px; transition: var(--transition);
+            margin: 2px 0;
+        }
+        .nav-link:hover, .nav-link.active { color: #fff; background: rgba(213, 134, 47, 0.15); }
+        .nav-link.active { color: var(--primary); font-weight: 600; }
+
+        /* Content Area */
+        .content { flex: 1; overflow-y: auto; padding: 2.5rem; background: #0c0e12; }
+        .content-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem; }
+        .breadcrumb { color: var(--text-muted); font-size: 0.85rem; }
+        .breadcrumb span { color: var(--primary); font-weight: 700; }
+
+        .content-card { 
+            background: var(--bg-card); padding: 3rem; border-radius: 16px; border: 1px solid var(--border);
+            display: none; animation: fadeIn 0.3s ease; border-left: 4px solid var(--primary);
+        }
+        .content-card.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .content-card h2 { font-size: 2.2rem; margin-bottom: 1.5rem; color: #fff; }
+        .content-card p { font-size: 1.1rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 2rem; }
+        
+        .badge { 
+            display: inline-block; padding: 0.3rem 0.8rem; background: rgba(213,134,47,0.1); 
+            color: var(--primary); border-radius: 50px; font-size: 0.75rem; font-weight: 700; 
+            text-transform: uppercase; margin-bottom: 1.5rem;
+        }
+
+        .notion-btn { 
+            display: inline-flex; align-items: center; gap: 0.8rem; padding: 1rem 2rem; 
+            background: var(--primary); color: white; border-radius: 8px; text-decoration: none; 
+            font-weight: 700; transition: var(--transition);
+        }
+        .notion-btn:hover { background: var(--primary-dark); transform: translateY(-2px); }
+
+        .welcome-hero { text-align: center; padding: 8rem 2rem; display: none; }
+        .welcome-hero.active { display: block; }
+        .welcome-hero h1 { font-size: 4rem; margin-bottom: 1rem; color: #fff; }
+        .welcome-hero p { color: var(--text-muted); font-size: 1.2rem; }
+
+        .sidebar-footer { padding: 1rem; font-size: 0.7rem; color: #333; text-align: center; border-top: 1px solid var(--border); }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="logo_motoclick.png" alt="Logo" class="logo">
+                <h1>Onboarding Hub</h1>
+            </div>
+            <nav class="sidebar-nav">
+                <!-- Middlewares -->
+                <div class="nav-group">
+                    <div class="group-title"><i data-lucide="layers"></i> 1. Middlewares</div>
+                    <a href="#card-1-1" class="nav-link level-1">1.1 Kitchenhub</a>
+                    <a href="#step-1-1-1" class="nav-link level-2">1.1.1 How to Login</a>
+                    <a href="#step-1-1-2" class="nav-link level-2">1.1.2 How to create Location</a>
+                    <a href="#step-1-1-3" class="nav-link level-2">1.1.3 How to create Store</a>
+                    <a href="#step-1-1-4" class="nav-link level-2">1.1.4 How to Connect Providers</a>
+                    <a href="#step-1-1-5" class="nav-link level-2">1.1.5 How to Setup Tablet</a>
+                    <a href="#step-1-2" class="nav-link level-1">1.2 Chowly</a>
+                    <a href="#step-1-3" class="nav-link level-1">1.3 Toast</a>
+                    <a href="#step-1-4" class="nav-link level-1">1.4 Stream</a>
+                    <a href="#step-1-4-1" class="nav-link level-2">1.4.1 Stream Help Center</a>
+                </div>
+
+                <!-- POS -->
+                <div class="nav-group">
+                    <div class="group-title"><i data-lucide="monitor"></i> 2. POS Systems</div>
+                    <a href="#step-2-1" class="nav-link level-1">2.1 Kitchenhub</a>
+                    <a href="#step-2-2" class="nav-link level-1">2.2 Chowly</a>
+                </div>
+
+                <!-- Web -->
+                <div class="nav-group">
+                    <div class="group-title"><i data-lucide="globe"></i> 3. Web / Email</div>
+                    <a href="#step-3-1" class="nav-link level-1">3.1 Third Party</a>
+                    <a href="#step-3-2" class="nav-link level-1">3.2 Restaurant's Web</a>
+                </div>
+
+                <!-- Motoclick -->
+                <div class="nav-group">
+                    <div class="group-title"><i data-lucide="smartphone"></i> 4. Motoclick</div>
+                    <a href="#step-4-1" class="nav-link level-1">4.1 Panel</a>
+                </div>
+            </nav>
+            <div class="sidebar-footer">Motoclick Onboarding v1.3</div>
+        </aside>
+
+        <main class="content">
+            <header class="content-header">
+                <div class="breadcrumb">Guide > <span id="active-crumb">Welcome</span></div>
+            </header>
+
+            <div id="welcome" class="welcome-hero active">
+                <h1>Welcome</h1>
+                <p>Select a guide from the sidebar to start the onboarding process.</p>
+            </div>
+
+            <!-- 1. Middlewares Content -->
+            <div id="card-1-1" class="content-card">
+                <span class="badge">Middlewares</span>
+                <h2>1.1 Kitchenhub Overview</h2>
+                <p>Kitchenhub is a powerful middleware that centralizes your orders from multiple delivery platforms into a single dashboard.</p>
+                <p>Select one of the sub-steps in the sidebar for specific instructions.</p>
+            </div>
+
+            <div id="step-1-1-1" class="content-card">
+                <span class="badge">Kitchenhub</span>
+                <h2>1.1.1 How to Login</h2>
+                <p>Access the admin panel using your merchant credentials.</p>
+                <a href="https://dashboard.kitchenhub.com" target="_blank" class="notion-btn">Go to Dashboard</a>
+            </div>
+
+            <div id="step-1-1-2" class="content-card">
+                <span class="badge">Kitchenhub</span>
+                <h2>1.1.2 How to create Location</h2>
+                <p>Instructions for setting up physical or virtual locations.</p>
+                <a href="https://restauranthub.notion.site/How-to-create-Location-e968b14119e94e7894f7908b0258146b" target="_blank" class="notion-btn">Open Notion Guide</a>
+            </div>
+
+            <div id="step-1-1-3" class="content-card">
+                <span class="badge">Kitchenhub</span>
+                <h2>1.1.3 How to create Store</h2>
+                <p>Step-by-step guide to adding brands and stores.</p>
+                <a href="https://restauranthub.notion.site/How-to-create-Store-Brand-9e039ae5080a42b280afcf97eddff135" target="_blank" class="notion-btn">Open Notion Guide</a>
+            </div>
+
+            <div id="step-1-1-4" class="content-card">
+                <span class="badge">Kitchenhub</span>
+                <h2>1.1.4 How to Connect Providers</h2>
+                <p>Link your UberEats, DoorDash, and other delivery partners.</p>
+                <a href="https://restauranthub.notion.site/How-to-Connect-Providers-7885d49276ed4a43993c19d5f76d47e8" target="_blank" class="notion-btn">Open Notion Guide</a>
+            </div>
+
+            <div id="step-1-1-5" class="content-card">
+                <span class="badge">Kitchenhub</span>
+                <h2>1.1.5 How to Setup Tablet</h2>
+                <p>Configuration of the receiving tablet for order management.</p>
+                <a href="https://restauranthub.notion.site/How-to-Setup-Tablet-1579b2a2bc638064b6e0fc33513d9cbf" target="_blank" class="notion-btn">Open Notion Guide</a>
+            </div>
+
+            <div id="step-1-2" class="content-card">
+                <span class="badge">Middlewares</span>
+                <h2>1.2 Chowly Setup</h2>
+                <p>Chowly integrates your delivery platforms directly with your POS system.</p>
+                <p>Ensure you have your POS API credentials ready before starting the integration.</p>
+            </div>
+
+            <div id="step-1-3" class="content-card">
+                <span class="badge">Middlewares</span>
+                <h2>1.3 Toast Integration</h2>
+                <p>Connect your Toast POS system to automate order flow and menu management.</p>
+            </div>
+
+            <div id="step-1-4" class="content-card">
+                <span class="badge">Middlewares</span>
+                <h2>1.4 Stream Middleware</h2>
+                <p>Manage multiple brands and orders through the Stream ecosystem.</p>
+            </div>
+
+            <div id="step-1-4-1" class="content-card">
+                <span class="badge">Stream</span>
+                <h2>1.4.1 Stream Help Center</h2>
+                <p>Access official documentation, troubleshooting guides, and support for Stream.</p>
+                <a href="https://help.streamorders.com/en/" target="_blank" class="notion-btn">Visit Help Center</a>
+            </div>
+
+            <!-- 2. POS Content -->
+            <div id="step-2-1" class="content-card">
+                <span class="badge">POS Systems</span>
+                <h2>2.1 Kitchenhub POS</h2>
+                <p>Setup instructions for the Kitchenhub Point of Sale system, including hardware and software configuration.</p>
+            </div>
+
+            <div id="step-2-2" class="content-card">
+                <span class="badge">POS Systems</span>
+                <h2>2.2 Chowly POS</h2>
+                <p>Configuration steps to link your existing POS with Chowly for automatic order injection.</p>
+            </div>
+
+            <!-- 3. Web Content -->
+            <div id="step-3-1" class="content-card">
+                <span class="badge">Web / Email</span>
+                <h2>3.1 Third Party Integrations</h2>
+                <p>Manage integrations with external web ordering services and email notification systems.</p>
+            </div>
+
+            <div id="step-3-2" class="content-card">
+                <span class="badge">Web / Email</span>
+                <h2>3.2 Restaurant's Web</h2>
+                <p>Embed the Motoclick ordering widget directly into your restaurant's official website.</p>
+            </div>
+
+            <!-- 4. Motoclick Content -->
+            <div id="step-4-1" class="content-card">
+                <span class="badge">Motoclick</span>
+                <h2>4.1 Motoclick Panel</h2>
+                <p>The central command center for your delivery fleet and order tracking.</p>
+                <p>Access real-time data and manage your drivers through the Motoclick Panel.</p>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            const navLinks = document.querySelectorAll('.nav-link');
+            const cards = document.querySelectorAll('.content-card');
+            const welcome = document.getElementById('welcome');
+            const crumb = document.getElementById('active-crumb');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1);
+                    
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    cards.forEach(c => c.classList.remove('active'));
+                    welcome.classList.remove('active');
+
+                    link.classList.add('active');
+                    const target = document.getElementById(targetId);
+                    if (target) target.classList.add('active');
+                    crumb.textContent = link.textContent;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
