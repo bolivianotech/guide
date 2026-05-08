@@ -251,8 +251,8 @@
             <div id="step-1-2" class="content-card">
                 <span class="badge">Middlewares</span>
                 <h2>1.2 Chowly Setup</h2>
-                <p>Chowly integrates your delivery platforms directly with your POS system.</p>
-                <p>Ensure you have your POS API credentials ready before starting the integration.</p>
+                <p>Chowly integrates our delivery platforms directly with merchant.</p>
+                <p>Ensure you have reach an agreetment between AE (Account Executive) from Chowly to get starting the integration.</p>
                 <img src="chowly_sclack_coordination.png" alt="Chowly Slack coordination reference" style="max-width:100%; border-radius:8px; border:1px solid rgba(255,255,255,0.08);">
             </div>
 
@@ -283,6 +283,25 @@
                 <span class="badge">POS Systems</span>
                 <h2>2.2 Chowly POS</h2>
                 <p>Configuration steps to link your existing POS with Chowly for automatic order injection.</p>
+
+                <hr class="section-divider">
+
+                <div class="tip-box">
+                    <div class="tip-box-title">Getting the Merchant ID from Sigma (Chowly's Platform)</div>
+                    <p>
+                        To associate a restaurant with Motoclick's dispatch panel and start displaying their orders, you must obtain the <strong style="color:var(--text-main);">Merchant ID</strong> from <strong style="color:var(--text-main);">Sigma</strong> — Chowly's internal management platform. This ID is the unique identifier that links the merchant's delivery activity to our system.
+                    </p>
+                    <ol>
+                        <li>Log in to the <strong>Sigma platform</strong> using your Chowly admin credentials.</li>
+                        <li>Search for the restaurant by name or location.</li>
+                        <li>Open the merchant's profile and locate the <strong>Merchant ID</strong> field — this is the value you need.</li>
+                        <li>Copy the Merchant ID and enter it in Motoclick's panel to complete the association. Once linked, orders from this merchant will appear in the dispatch view.</li>
+                    </ol>
+                    <p style="margin-top:1rem;">
+                        The image below shows the Sigma platform. The Merchant ID is a required field — without it, Motoclick cannot route or display the merchant's delivery orders.
+                    </p>
+                    <img src="chowly_platform.png" alt="Chowly Sigma platform — Merchant ID reference" style="margin-top:0.5rem; max-width:100%; border-radius:8px; border:1px solid rgba(255,255,255,0.08);">
+                </div>
             </div>
 
             <div id="step-2-3" class="content-card">
