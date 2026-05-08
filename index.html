@@ -85,6 +85,35 @@
         .welcome-hero p { color: var(--text-muted); font-size: 1.2rem; }
 
         .sidebar-footer { padding: 1rem; font-size: 0.7rem; color: #333; text-align: center; border-top: 1px solid var(--border); }
+
+        .section-divider { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+        .tip-box {
+            background: rgba(213, 134, 47, 0.07);
+            border: 1px solid rgba(213, 134, 47, 0.3);
+            border-radius: 10px;
+            padding: 1.5rem 2rem;
+            margin-top: 1.5rem;
+        }
+        .tip-box-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .tip-box p { font-size: 0.95rem; margin-bottom: 1rem; color: var(--text-muted); line-height: 1.7; }
+        .tip-box ol { padding-left: 1.4rem; color: var(--text-muted); font-size: 0.95rem; line-height: 2; }
+        .tip-box ol li strong { color: var(--text-main); }
+        .tip-box .code-inline {
+            background: rgba(255,255,255,0.07);
+            color: #e2e8f0;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.88rem;
+        }
     </style>
 </head>
 <body>
@@ -155,7 +184,7 @@
                 <span class="badge">Kitchenhub</span>
                 <h2>1.1.1 How to Login</h2>
                 <p>Access the admin panel using your merchant credentials.</p>
-                <a href="https://dashboard.kitchenhub.com" target="_blank" class="notion-btn">Go to Dashboard</a>
+                <a href="https://restauranthub.notion.site/How-to-Login-to-the-Dashboard-05a8adfda873446e9c5b659615c262ab" target="_blank" class="notion-btn">Go to Dashboard</a>
             </div>
 
             <div id="step-1-1-2" class="content-card">
@@ -177,6 +206,31 @@
                 <h2>1.1.4 How to Connect Providers</h2>
                 <p>Link your UberEats, DoorDash, and other delivery partners.</p>
                 <a href="https://restauranthub.notion.site/How-to-Connect-Providers-7885d49276ed4a43993c19d5f76d47e8" target="_blank" class="notion-btn">Open Notion Guide</a>
+
+                <hr class="section-divider">
+
+                <div class="tip-box">
+                    <div class="tip-box-title">Alternative Method — Send the link to the restaurant owner</div>
+                    <p>
+                        If you don't have the delivery provider credentials, you can send a unique link to the merchant so they can enter their own details. Once they complete the form, the provider is automatically integrated through Kitchenhub.
+                    </p>
+                    <ol>
+                        <li>In Kitchenhub, select the <strong>Provider</strong> you want to connect (e.g. Grubhub, UberEats, DoorDash).</li>
+                        <li>Kitchenhub will generate a unique connection URL. Copy it and send it to the restaurant owner.<br>
+                            Example: <span class="code-inline">https://khrestaurant.com/de93487689284cdeb1b1d1b817a881c8</span>
+                        </li>
+                        <li>The merchant opens the link and fills in the three required fields:
+                            <ul style="margin-top:0.3rem; padding-left:1.2rem; line-height:2;">
+                                <li><strong>Login</strong> — email or username for their provider account.</li>
+                                <li><strong>Password</strong> — password for that account.</li>
+                                <li><strong>Merchant ID</strong> — the restaurant's unique identifier on the provider.</li>
+                            </ul>
+                        </li>
+                        <li>To find the <strong>Grubhub Merchant ID</strong>, look up the restaurant on <span class="code-inline">grubhub.com</span> and take the digits at the end of its page URL.<br>
+                            Example: <span class="code-inline">grubhub.com/restaurant/alvo-pizza-.../11614448</span> → Merchant ID: <span class="code-inline">11614448</span>
+                        </li>
+                    </ol>
+                </div>
             </div>
 
             <div id="step-1-1-5" class="content-card">
