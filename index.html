@@ -155,8 +155,8 @@
                 <div class="nav-group">
                     <div class="group-title"><i data-lucide="globe"></i> 3. Web / Email</div>
                     <a href="#step-3-1" class="nav-link level-1">3.1 Third Party</a>
-                    <a href="#step-3-1-1" class="nav-link level-2">3.1.1 Toast-Web (toasttab)</a>
                     <a href="#step-3-2" class="nav-link level-1">3.2 Restaurant's Web</a>
+                    <a href="#step-3-2-1" class="nav-link level-2">3.2.1 Toast-Web (toasttab)</a>
                 </div>
 
                 <!-- Motoclick -->
@@ -282,7 +282,7 @@
             <div id="step-2-2" class="content-card">
                 <span class="badge">POS Systems</span>
                 <h2>2.2 Chowly POS</h2>
-                <p>Configuration steps to link your existing POS with Chowly for automatic order injection.</p>
+                <p>Configuration steps to link existing POS with Chowly for automatic order injection.</p>
 
                 <hr class="section-divider">
 
@@ -347,16 +347,47 @@
                 <p>Manage integrations with external web ordering services and email notification systems.</p>
             </div>
 
-            <div id="step-3-1-1" class="content-card">
-                <span class="badge">Web / Email</span>
-                <h2>3.1.1 Toast-Web (toasttab)</h2>
-                <p>Configuration guide for integrating the Toast web ordering experience via toasttab into your delivery workflow.</p>
-            </div>
-
             <div id="step-3-2" class="content-card">
                 <span class="badge">Web / Email</span>
                 <h2>3.2 Restaurant's Web</h2>
                 <p>Embed the Motoclick ordering widget directly into your restaurant's official website.</p>
+
+                <hr class="section-divider">
+
+                <div class="tip-box">
+                    <div class="tip-box-title">Setting Up the Restaurant's Google Email &amp; Two-Factor Authentication</div>
+                    <p>
+                        To enable email order scraping for the restaurant, we need to create a dedicated Google email account for them and enable <strong style="color:var(--text-main);">Two-Factor Authentication (2FA)</strong>. This is a required step before generating the App Password that Motoclick's Systems Department will use.
+                    </p>
+                    <ol>
+                        <li>
+                            <strong>Create the email account</strong> and navigate to the Google Account security settings to enable Two-Factor Authentication. The screen below shows the 2FA setup page:
+                            <br>
+                            <img src="two-factor-authentication2.png" alt="Google Two-Factor Authentication setup screen" style="margin-top:1rem; max-width:100%; border-radius:8px; border:1px solid rgba(255,255,255,0.08);">
+                        </li>
+                        <li>
+                            Once 2FA is enabled, your account security page will confirm it is active — as shown below:
+                            <br>
+                            <img src="two-factor-authentication4.png" alt="Two-Factor Authentication enabled confirmation" style="margin-top:1rem; max-width:100%; border-radius:8px; border:1px solid rgba(255,255,255,0.08);">
+                        </li>
+                        <li>
+                            With 2FA active, go to <strong>Google Account → Security → App Passwords</strong> to generate the app password that will be shared with Motoclick's Systems Department. The App Passwords section looks like this:
+                            <br>
+                            <img src="appspassword.png" alt="Google App Passwords section" style="margin-top:1rem; max-width:100%; border-radius:8px; border:1px solid rgba(255,255,255,0.08);">
+                        </li>
+                        <li>
+                            Google will generate a <strong>16-character code</strong> (for example: <span class="code-inline">ehqh ffqc wgru pgps</span>). Copy this code and share it with <strong style="color:var(--text-main);">Motoclick's Systems Department</strong>. This code allows Motoclick to scrape email orders from the restaurant's inbox on their behalf.
+                            <br>
+                            <img src="appspassword2.png" alt="Generated 16-character App Password" style="margin-top:1rem; max-width:100%; border-radius:8px; border:1px solid rgba(255,255,255,0.08);">
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+            <div id="step-3-2-1" class="content-card">
+                <span class="badge">Web / Email</span>
+                <h2>3.2.1 Toast-Web (toasttab)</h2>
+                <p>Configuration guide for integrating the Toast web ordering experience via toasttab into your delivery workflow.</p>
             </div>
 
             <!-- 4. Motoclick Content -->
@@ -365,6 +396,7 @@
                 <h2>4.1 Motoclick Panel</h2>
                 <p>The central command center for your delivery fleet and order tracking.</p>
                 <p>Access real-time data and manage your drivers through the Motoclick Panel.</p>
+                <img src="panel_motoclick.png" alt="Motoclick Central Command Panel" style="max-width:100%; border-radius:8px; border:1px solid rgba(255,255,255,0.08); margin-top:1rem;">
             </div>
         </main>
     </div>
