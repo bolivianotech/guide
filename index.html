@@ -27,7 +27,9 @@
 
         /* Sidebar */
         .sidebar { width: 340px; background-color: var(--bg-sidebar); border-right: 1px solid var(--border); display: flex; flex-direction: column; }
-        .sidebar-header { padding: 1.5rem; text-align: center; border-bottom: 1px solid var(--border); }
+        .sidebar-header { padding: 1.5rem; text-align: center; border-bottom: 1px solid var(--border); cursor: pointer; transition: var(--transition); }
+        .sidebar-header:hover { background: rgba(213,134,47,0.06); }
+        .sidebar-header:hover h1 { color: #fff; }
         .logo { width: 70px; margin-bottom: 0.5rem; }
         .sidebar-header h1 { font-size: 1.1rem; color: var(--primary); letter-spacing: 1px; }
         
@@ -203,7 +205,7 @@
 
         <main class="content">
             <header class="content-header">
-                <div class="breadcrumb">Guide > <span id="active-crumb">Welcome</span></div>
+                <div class="breadcrumb"><span id="home-crumb" style="cursor:pointer;color:var(--primary);font-weight:600;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Guide</span> > <span id="active-crumb">Welcome</span></div>
             </header>
 
             <div id="welcome" class="welcome-hero active">
@@ -700,6 +702,16 @@
                     navigateTo(card.dataset.target, card.dataset.label);
                 });
             });
+
+            function navigateHome() {
+                navLinks.forEach(l => l.classList.remove('active'));
+                cards.forEach(c => c.classList.remove('active'));
+                welcome.classList.add('active');
+                crumb.textContent = 'Welcome';
+            }
+
+            document.querySelector('.sidebar-header').addEventListener('click', navigateHome);
+            document.getElementById('home-crumb').addEventListener('click', navigateHome);
         });
     </script>
 </body>
