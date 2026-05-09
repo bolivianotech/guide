@@ -79,10 +79,43 @@
         }
         .notion-btn:hover { background: var(--primary-dark); transform: translateY(-2px); }
 
-        .welcome-hero { text-align: center; padding: 8rem 2rem; display: none; }
+        .welcome-hero { text-align: left; padding: 0; display: none; }
         .welcome-hero.active { display: block; }
-        .welcome-hero h1 { font-size: 4rem; margin-bottom: 1rem; color: #fff; }
-        .welcome-hero p { color: var(--text-muted); font-size: 1.2rem; }
+
+        /* ── Onboarding Main Page ── */
+        .ob-hero { text-align: center; padding: 2.5rem 1rem 2rem; border-bottom: 1px solid var(--border); margin-bottom: 2.5rem; }
+        .ob-hero h1 { font-size: 2.4rem; color: #fff; margin-bottom: 0.75rem; font-weight: 700; }
+        .ob-hero p { color: var(--text-muted); font-size: 1rem; max-width: 620px; margin: 0 auto; line-height: 1.7; }
+
+        .ob-sections { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 3rem; }
+        .ob-sec-card { background: var(--bg-card); border: 1px solid var(--border); border-top: 3px solid var(--primary); border-radius: 12px; padding: 1.4rem 1.2rem; cursor: pointer; transition: var(--transition); }
+        .ob-sec-card:hover { background: rgba(213,134,47,0.06); transform: translateY(-3px); border-color: var(--primary); }
+        .ob-sec-icon { width: 34px; height: 34px; background: rgba(213,134,47,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--primary); margin-bottom: 0.9rem; }
+        .ob-sec-num { font-size: 1.8rem; font-weight: 700; color: rgba(213,134,47,0.2); line-height: 1; margin-bottom: 0.4rem; }
+        .ob-sec-card h3 { font-size: 0.88rem; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 0.35rem; }
+        .ob-sec-card p { font-size: 0.78rem; color: var(--text-muted); margin: 0; line-height: 1.5; }
+
+        .ob-process-title { font-size: 1.3rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem; }
+        .ob-process-sub { color: var(--text-muted); font-size: 0.88rem; line-height: 1.6; margin-bottom: 2rem; }
+
+        .ob-flow { display: flex; flex-direction: column; }
+        .ob-step { display: grid; grid-template-columns: 48px 1fr; gap: 1rem; }
+        .ob-step-left { display: flex; flex-direction: column; align-items: center; }
+        .ob-step-num { width: 42px; height: 42px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; color: #fff; flex-shrink: 0; z-index: 1; }
+        .ob-step-line { width: 2px; flex: 1; min-height: 20px; background: linear-gradient(to bottom, rgba(213,134,47,0.4), rgba(213,134,47,0.05)); }
+        .ob-step:last-child .ob-step-line { display: none; }
+        .ob-step-body { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 1.1rem 1.4rem; margin-bottom: 14px; }
+        .ob-step-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+        .ob-step-title { font-size: 0.98rem; font-weight: 700; color: #fff; }
+        .ob-owners { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+        .ob-owner-tag { font-size: 0.68rem; font-weight: 600; padding: 0.18rem 0.55rem; border-radius: 50px; background: rgba(255,255,255,0.06); color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.4px; }
+        .ob-owner-jordan { background: rgba(213,134,47,0.15); color: var(--primary); }
+        .ob-step-desc { font-size: 0.86rem; color: var(--text-muted); line-height: 1.65; }
+        .ob-step-desc ul { padding-left: 1.2rem; margin-top: 0.35rem; }
+        .ob-step-desc li { line-height: 1.85; }
+        .ob-jordan-note { margin-top: 0.7rem; padding: 0.55rem 0.85rem; background: rgba(213,134,47,0.06); border-left: 3px solid var(--primary); border-radius: 0 6px 6px 0; font-size: 0.8rem; color: var(--primary); line-height: 1.55; }
+        .ob-step-go-live { border-left: 3px solid #4ade80 !important; }
+        .ob-step-go-live .ob-step-num { background: #4ade80; color: #0f1115; }
 
         .sidebar-footer { padding: 1rem; font-size: 0.7rem; color: #333; text-align: center; border-top: 1px solid var(--border); }
 
@@ -174,8 +207,243 @@
             </header>
 
             <div id="welcome" class="welcome-hero active">
-                <h1>Welcome</h1>
-                <p>Select a guide from the sidebar to start the onboarding process.</p>
+
+                <!-- Hero -->
+                <div class="ob-hero">
+                    <span class="badge">New Client Onboarding</span>
+                    <h1>Motoclick Onboarding Guide</h1>
+                    <p>Operational process for onboarding a new merchant from sales agreement to go-live. Navigate the four main sections below or use the sidebar.</p>
+                </div>
+
+                <!-- 4 Section Cards -->
+                <div class="ob-sections">
+                    <div class="ob-sec-card" data-target="card-1-1" data-label="1.1 Kitchenhub Overview">
+                        <div class="ob-sec-icon"><i data-lucide="layers" style="width:18px;height:18px;"></i></div>
+                        <div class="ob-sec-num">01</div>
+                        <h3>Middlewares</h3>
+                        <p>Kitchenhub · Chowly · Stream</p>
+                    </div>
+                    <div class="ob-sec-card" data-target="step-2-1" data-label="2.1 Kitchenhub POS">
+                        <div class="ob-sec-icon"><i data-lucide="monitor" style="width:18px;height:18px;"></i></div>
+                        <div class="ob-sec-num">02</div>
+                        <h3>POS Systems</h3>
+                        <p>Toast · Square · Clover · Aloha · Stream · Shift4</p>
+                    </div>
+                    <div class="ob-sec-card" data-target="step-3-1" data-label="3.1 Third Party">
+                        <div class="ob-sec-icon"><i data-lucide="globe" style="width:18px;height:18px;"></i></div>
+                        <div class="ob-sec-num">03</div>
+                        <h3>Web / Email</h3>
+                        <p>Third Party · Restaurant Web · Toast-Web</p>
+                    </div>
+                    <div class="ob-sec-card" data-target="step-4-1" data-label="4.1 Panel">
+                        <div class="ob-sec-icon"><i data-lucide="smartphone" style="width:18px;height:18px;"></i></div>
+                        <div class="ob-sec-num">04</div>
+                        <h3>Motoclick</h3>
+                        <p>Central dispatch panel &amp; merchant management</p>
+                    </div>
+                </div>
+
+                <!-- Operational Process -->
+                <p class="ob-process-title">Operational Onboarding Process</p>
+                <p class="ob-process-sub">From sales agreement to merchant go-live — Jordan (Onboarding Manager) is involved from the initial call onwards, coordinating with the Systems Department to ensure a seamless integration across all platforms and delivery services the merchant uses.</p>
+
+                <div class="ob-flow">
+
+                    <!-- Step 1 -->
+                    <div class="ob-step">
+                        <div class="ob-step-left">
+                            <div class="ob-step-num">1</div>
+                            <div class="ob-step-line"></div>
+                        </div>
+                        <div class="ob-step-body">
+                            <div class="ob-step-header">
+                                <div class="ob-step-title">Sales Process</div>
+                                <div class="ob-owners"><span class="ob-owner-tag">Sales Representative</span></div>
+                            </div>
+                            <div class="ob-step-desc">
+                                Close agreement with the client.
+                                <ul>
+                                    <li>Confirm delivery coverage (e.g. 2-mile radius), pricing: bike rate, catering/car rate, and special conditions.</li>
+                                    <li>Confirm which delivery channels the client currently uses: Uber Eats, DoorDash, Grubhub, Website, etc.</li>
+                                    <li>Confirm whether the client is currently using another logistics company for deliveries.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="ob-step">
+                        <div class="ob-step-left">
+                            <div class="ob-step-num">2</div>
+                            <div class="ob-step-line"></div>
+                        </div>
+                        <div class="ob-step-body">
+                            <div class="ob-step-header">
+                                <div class="ob-step-title">Initial Onboarding Call</div>
+                                <div class="ob-owners">
+                                    <span class="ob-owner-tag">Onboarding Team</span>
+                                    <span class="ob-owner-tag ob-owner-jordan">Jordan</span>
+                                </div>
+                            </div>
+                            <div class="ob-step-desc">
+                                Schedule and conduct the initial onboarding call with the client.
+                                <ul>
+                                    <li>Confirm the exact delivery channels the client will give to Motoclick.</li>
+                                    <li>Define if the merchant uses a POS system: Toast, Square, Revel, or another.</li>
+                                    <li>Confirm if the merchant uses middleware to centralize orders: Chowly, Stream, KitchenHub, or other.</li>
+                                </ul>
+                                <div class="ob-jordan-note">
+                                    Jordan joins from this step to begin assessing integration complexity and pre-coordinate with the Systems Department — ensuring no disruption to existing platforms or delivery services the merchant already has in place.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="ob-step">
+                        <div class="ob-step-left">
+                            <div class="ob-step-num">3</div>
+                            <div class="ob-step-line"></div>
+                        </div>
+                        <div class="ob-step-body">
+                            <div class="ob-step-header">
+                                <div class="ob-step-title">Ecosystem Review</div>
+                                <div class="ob-owners">
+                                    <span class="ob-owner-tag">Onboarding Team</span>
+                                    <span class="ob-owner-tag ob-owner-jordan">Jordan</span>
+                                    <span class="ob-owner-tag">Technical Support</span>
+                                </div>
+                            </div>
+                            <div class="ob-step-desc">
+                                Map the client's full operational ecosystem before any technical setup begins.
+                                <ul>
+                                    <li>Identify the source of truth for orders: POS, middleware, delivery app dashboard, website, or email.</li>
+                                    <li>Confirm if existing integrations could be affected by the Motoclick onboarding process.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="ob-step">
+                        <div class="ob-step-left">
+                            <div class="ob-step-num">4</div>
+                            <div class="ob-step-line"></div>
+                        </div>
+                        <div class="ob-step-body">
+                            <div class="ob-step-header">
+                                <div class="ob-step-title">Integration Strategy</div>
+                                <div class="ob-owners">
+                                    <span class="ob-owner-tag">Onboarding Team</span>
+                                    <span class="ob-owner-tag ob-owner-jordan">Jordan</span>
+                                </div>
+                            </div>
+                            <div class="ob-step-desc">
+                                Define the best integration option based on the client's ecosystem.
+                                <ul>
+                                    <li>Available options: KitchenHub, Email Protocol, Stream, Chowly, Direct API, or POS integration.</li>
+                                    <li>Select the option that allows Motoclick to receive orders without interrupting the merchant's current kitchen flow.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="ob-step">
+                        <div class="ob-step-left">
+                            <div class="ob-step-num">5</div>
+                            <div class="ob-step-line"></div>
+                        </div>
+                        <div class="ob-step-body">
+                            <div class="ob-step-header">
+                                <div class="ob-step-title">Implementation Request</div>
+                                <div class="ob-owners">
+                                    <span class="ob-owner-tag">Onboarding Team</span>
+                                    <span class="ob-owner-tag ob-owner-jordan">Jordan</span>
+                                </div>
+                            </div>
+                            <div class="ob-step-desc">
+                                Send the implementation request to the Systems Department via Notion, email, or WhatsApp.
+                                <ul>
+                                    <li>Must include: client name, channels, POS, middleware, delivery radius, rates, and selected integration method.</li>
+                                    <li>Include all credentials, access details, or contact points needed for implementation.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div class="ob-step">
+                        <div class="ob-step-left">
+                            <div class="ob-step-num">6</div>
+                            <div class="ob-step-line"></div>
+                        </div>
+                        <div class="ob-step-body">
+                            <div class="ob-step-header">
+                                <div class="ob-step-title">Technical Implementation</div>
+                                <div class="ob-owners">
+                                    <span class="ob-owner-tag ob-owner-jordan">Jordan</span>
+                                    <span class="ob-owner-tag">Systems Department</span>
+                                </div>
+                            </div>
+                            <div class="ob-step-desc">
+                                Create the Motoclick Merchant Panel and configure the full integration.
+                                <ul>
+                                    <li>Configure merchant account, delivery settings, and operational rules.</li>
+                                    <li>Synchronize the Merchant Panel with the selected integration: Email Protocol, KitchenHub, Stream, Chowly, API, or POS.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 7 -->
+                    <div class="ob-step">
+                        <div class="ob-step-left">
+                            <div class="ob-step-num">7</div>
+                            <div class="ob-step-line"></div>
+                        </div>
+                        <div class="ob-step-body">
+                            <div class="ob-step-header">
+                                <div class="ob-step-title">Testing Phase</div>
+                                <div class="ob-owners">
+                                    <span class="ob-owner-tag ob-owner-jordan">Jordan</span>
+                                    <span class="ob-owner-tag">Onboarding Team</span>
+                                </div>
+                            </div>
+                            <div class="ob-step-desc">
+                                Run a test order for each channel connected to Motoclick.
+                                <ul>
+                                    <li>Verify orders flow correctly into Motoclick.</li>
+                                    <li>Verify POS printing, auto-acceptance, order data, pickup time, customer address, and dispatch synchronization.</li>
+                                    <li>Document issues and resolve them before handoff.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 8 -->
+                    <div class="ob-step">
+                        <div class="ob-step-left">
+                            <div class="ob-step-num ob-step-go-live" style="background:#4ade80;color:#0f1115;">8</div>
+                            <div class="ob-step-line"></div>
+                        </div>
+                        <div class="ob-step-body ob-step-go-live">
+                            <div class="ob-step-header">
+                                <div class="ob-step-title">Operations Handoff &amp; Go-Live</div>
+                                <div class="ob-owners"><span class="ob-owner-tag">Operations Team</span></div>
+                            </div>
+                            <div class="ob-step-desc">
+                                Notify Operations once all channel tests are approved.
+                                <ul>
+                                    <li>Operations trains the client on how to use the Motoclick Merchant Panel.</li>
+                                    <li>Explain the <em>'Order Ready'</em> workflow and when orders are released to dispatch.</li>
+                                    <li>Approve the merchant for go-live.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- /ob-flow -->
             </div>
 
             <!-- 1. Middlewares Content -->
@@ -409,19 +677,27 @@
             const welcome = document.getElementById('welcome');
             const crumb = document.getElementById('active-crumb');
 
+            function navigateTo(targetId, label) {
+                navLinks.forEach(l => l.classList.remove('active'));
+                cards.forEach(c => c.classList.remove('active'));
+                welcome.classList.remove('active');
+                const target = document.getElementById(targetId);
+                if (target) target.classList.add('active');
+                crumb.textContent = label;
+                const matchingLink = [...navLinks].find(l => l.getAttribute('href') === '#' + targetId);
+                if (matchingLink) matchingLink.classList.add('active');
+            }
+
             navLinks.forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
-                    const targetId = link.getAttribute('href').substring(1);
-                    
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    cards.forEach(c => c.classList.remove('active'));
-                    welcome.classList.remove('active');
+                    navigateTo(link.getAttribute('href').substring(1), link.textContent);
+                });
+            });
 
-                    link.classList.add('active');
-                    const target = document.getElementById(targetId);
-                    if (target) target.classList.add('active');
-                    crumb.textContent = link.textContent;
+            document.querySelectorAll('.ob-sec-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    navigateTo(card.dataset.target, card.dataset.label);
                 });
             });
         });
